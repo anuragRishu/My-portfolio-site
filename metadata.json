@@ -1,0 +1,8 @@
+{
+  "name": "VFX-Studio Portfolio Pro",
+  "description": "High-end video editor portfolio with Admin CMS and Gemini AI Assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
