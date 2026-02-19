@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
 import ProjectCard from './components/ProjectCard.tsx';
@@ -12,23 +12,34 @@ import { PROJECTS as DEFAULT_PROJECTS } from './constants.ts';
 import { siteConfig as DEFAULT_CONFIG } from './siteConfig.ts';
 
 const App: React.FC = () => {
-  const [isAdminMode, setIsAdminMode] = useState(window.location.hash === '#admin');
+  const [isAdminMode, setIsAdminMode] = useState(() => window.location.hash === '#admin');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // Persistence Layer
   const [config, setConfig] = useState<SiteConfig>(() => {
-    const saved = localStorage.getItem('vfx_config');
-    return saved ? JSON.parse(saved) : DEFAULT_CONFIG;
+    try {
+      const saved = localStorage.getItem('vfx_config');
+      return saved ? JSON.parse(saved) : DEFAULT_CONFIG;
+    } catch {
+      return DEFAULT_CONFIG;
+    }
   });
 
   const [projects, setProjects] = useState<Project[]>(() => {
-    const saved = localStorage.getItem('vfx_projects');
-    return saved ? JSON.parse(saved) : DEFAULT_PROJECTS;
+    try {
+      const saved = localStorage.getItem('vfx_projects');
+      return saved ? JSON.parse(saved) : DEFAULT_PROJECTS;
+    } catch {
+      return DEFAULT_PROJECTS;
+    }
   });
 
   useEffect(() => {
-    const handleHash = () => setIsAdminMode(window.location.hash === '#admin');
+    const handleHash = () => {
+      const isNowAdmin = window.location.hash === '#admin';
+      setIsAdminMode(isNowAdmin);
+      if (isNowAdmin) window.scrollTo(0, 0);
+    };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
@@ -43,6 +54,11 @@ const App: React.FC = () => {
     localStorage.setItem('vfx_projects', JSON.stringify(newProjects));
   };
 
+  const enterAdminMode = () => {
+    window.location.hash = 'admin';
+    setIsAdminMode(true); // Explicit set to ensure UI responds immediately
+  };
+
   if (isAdminMode) {
     if (!isLoggedIn) {
       return <AdminLogin onLogin={(pass) => pass === 'admin123' && setIsLoggedIn(true)} />;
@@ -53,14 +69,18 @@ const App: React.FC = () => {
         projects={projects} 
         onUpdateConfig={handleUpdateConfig}
         onUpdateProjects={handleUpdateProjects}
-        onLogout={() => setIsLoggedIn(false)}
+        onLogout={() => {
+          setIsLoggedIn(false);
+          window.location.hash = '';
+          setIsAdminMode(false);
+        }}
       />
     );
   }
 
   return (
     <div className="min-h-screen selection:bg-indigo-500 selection:text-white">
-      <Navbar config={config} onAdminClick={() => window.location.hash = 'admin'} />
+      <Navbar config={config} onAdminClick={enterAdminMode} />
       
       <main>
         <Hero config={config} />
@@ -85,7 +105,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <AICreativeAssistant />
+        <AICreativeAssistant config={config} />
 
         <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
@@ -103,9 +123,12 @@ const App: React.FC = () => {
             </div>
             
             <div>
-              <h2 className="text-4xl font-serif mb-8 leading-tight">The Visionary Behind <br/><span className="gradient-text">The Edit.</span></h2>
+              <h2 className="text-4xl font-serif mb-8 leading-tight">
+                {config.visionary.title.split(' ').slice(0, -2).join(' ')} <br/>
+                <span className="gradient-text">{config.visionary.title.split(' ').slice(-2).join(' ')}</span>
+              </h2>
               <div className="space-y-6 text-zinc-400 text-lg leading-relaxed">
-                {config.personal.bioLong.map((p, i) => <p key={i}>{p}</p>)}
+                {config.visionary.bioLong.map((p, i) => <p key={i}>{p}</p>)}
               </div>
               
               <div className="mt-12 grid grid-cols-2 gap-8">
@@ -123,11 +146,10 @@ const App: React.FC = () => {
         <Contact config={config} />
       </main>
 
-      {/* Cinematic Modal Viewer */}
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-300">
           <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={() => setSelectedProject(null)}></div>
-          <div className="relative w-full max-w-6xl glass rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-full">
+          <div className="relative w-full max-w-6xl glass rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-full" onClick={e => e.stopPropagation()}>
             <button 
               onClick={() => setSelectedProject(null)}
               className="absolute top-6 right-6 z-50 w-12 h-12 bg-white/10 hover:bg-indigo-600 rounded-full flex items-center justify-center transition-all"

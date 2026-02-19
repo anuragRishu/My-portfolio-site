@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import { geminiService } from '../services/geminiService';
-import { AIGeneratedContent, ProjectCategory } from '../types';
+import { AIGeneratedContent, ProjectCategory, SiteConfig } from '../types';
 import { CATEGORIES } from '../constants';
 
-const AICreativeAssistant: React.FC = () => {
+const AICreativeAssistant: React.FC<{ config: SiteConfig }> = ({ config }) => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState<ProjectCategory>('Commercial');
   const [loading, setLoading] = useState(false);
@@ -31,12 +31,11 @@ const AICreativeAssistant: React.FC = () => {
             <i className="fa-solid fa-wand-magic-sparkles"></i>
             <span>Powered by Gemini AI</span>
           </div>
-          <h2 className="text-4xl font-serif mb-4">AI Creative Assistant</h2>
-          <p className="text-gray-400">Struggling with the perfect description? Let the AI help you craft a professional project pitch.</p>
+          <h2 className="text-4xl font-serif mb-4">{config.assistant.title}</h2>
+          <p className="text-gray-400">{config.assistant.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Form */}
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">Project Type</label>
@@ -76,7 +75,6 @@ const AICreativeAssistant: React.FC = () => {
             </button>
           </div>
 
-          {/* Result Card */}
           <div className="bg-zinc-900 border border-white/5 rounded-2xl p-8 relative overflow-hidden flex flex-col">
             {!result && !loading && (
               <div className="flex-1 flex flex-col items-center justify-center text-center text-gray-500">

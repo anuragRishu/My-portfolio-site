@@ -26,10 +26,22 @@ export interface SiteConfig {
     location: string;
     email: string;
     avatar: string;
-    bioShort: string;
-    bioLong: string[];
     experienceYears: string;
     stats: { label: string; value: string }[];
+  };
+  hero: {
+    headline: string;
+    subHeadline: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+  assistant: {
+    title: string;
+    subtitle: string;
+  };
+  visionary: {
+    title: string;
+    bioLong: string[];
   };
   socials: { platform: string; url: string; icon: string }[];
   skills: {

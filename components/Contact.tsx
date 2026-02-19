@@ -23,8 +23,8 @@ const Contact: React.FC<ContactProps> = ({ config }) => {
             </p>
             
             <div className="space-y-4">
-              <a href={`mailto:${config.personal.email}`} className="flex items-center space-x-4 text-xl hover:text-indigo-400 transition-colors">
-                <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center">
+              <a href={`mailto:${config.personal.email}`} className="flex items-center space-x-4 text-xl hover:text-indigo-400 transition-colors group">
+                <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-indigo-600 transition-all">
                   <i className="fa-solid fa-envelope"></i>
                 </div>
                 <span>{config.personal.email}</span>
@@ -55,26 +55,32 @@ const Contact: React.FC<ContactProps> = ({ config }) => {
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Name</label>
-                  <input type="text" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500" placeholder="Your Name" />
+                  <input type="text" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-all" placeholder="Your Name" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Email</label>
-                  <input type="email" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500" placeholder="email@example.com" />
+                  <input type="email" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-all" placeholder="email@example.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Message</label>
-                <textarea rows={4} className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 resize-none" placeholder="How can I help you?"></textarea>
+                <textarea rows={4} className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 resize-none transition-all" placeholder="How can I help you?"></textarea>
               </div>
-              <button className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all">
+              <button className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-indigo-600/20">
                 Send Message
               </button>
             </form>
           </div>
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-gray-500 text-sm">
-          <p>© 2024 {config.personal.name}. All rights reserved.</p>
+        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-gray-500 text-xs">
+          <div className="flex items-center space-x-4">
+            <p>© 2024 {config.personal.name}.</p>
+            <a href="#admin" className="hover:text-indigo-400 transition-colors opacity-50 hover:opacity-100 flex items-center space-x-1">
+              <i className="fa-solid fa-lock text-[10px]"></i>
+              <span>Staff Login</span>
+            </a>
+          </div>
           <div className="flex space-x-8 mt-4 md:mt-0">
             <button 
               onClick={() => setShowGuide(true)}
@@ -101,13 +107,13 @@ const Contact: React.FC<ContactProps> = ({ config }) => {
               </section>
 
               <section>
-                <h4 className="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-widest">2. Deploying for Free</h4>
-                <p>Upload these files to GitHub and connect to <strong>Vercel</strong> or <strong>Netlify</strong>. They provide HTTPS and fast hosting for $0.</p>
+                <h4 className="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-widest">2. Admin Access</h4>
+                <p>To enter the admin area, click the small "Staff Login" link in the footer or append <strong>#admin</strong> to your site URL.</p>
               </section>
 
               <section>
                 <h4 className="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-widest">3. Environmental Variables</h4>
-                <p>Ensure you add your <code>API_KEY</code> in the provider's dashboard so the Gemini Creative Assistant works on the live site.</p>
+                <p>Ensure you add your <code>API_KEY</code> in Vercel/Netlify so the Gemini Creative Assistant works on the live site.</p>
               </section>
             </div>
 
