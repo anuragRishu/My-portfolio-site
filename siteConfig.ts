@@ -6,26 +6,26 @@ export const siteConfig: SiteConfig = {
     "role": "Senior Video Editor & Motion Designer",
     "location": "Indore/ Remote",
     "email": "ai.anu6261@gmail.com",
-    "avatar": "https://images.unsplash.com/photo-1717732596477-04f8c5d53387?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avatar": "https://images.pexels.com/photos/36249828/pexels-photo-36249828.jpeg?_gl=1*tsbyn0*_ga*MTQ0OTExODkzOS4xNzY5Mjc2MTA0*_ga_8JE65Q40S6*czE3NzE2NTM4NzIkbzYkZzEkdDE3NzE2NTQxNTYkajE4JGwwJGgw",
     "experienceYears": "3+",
     "stats": [
       {
         "label": "Projects Completed",
-        "value": "150+"
-      },
-      {
-        "label": "Happy Clients",
         "value": "50+"
       },
       {
-        "label": "Views Generated",
-        "value": "10M+"
+        "label": "Happy Clients",
+        "value": "40+"
+      },
+      {
+        "label": "Short film projects",
+        "value": "5+"
       }
     ]
   },
   "hero": {
     "headline": "Visual Storytelling Redefined.",
-    "subHeadline": "Award-winning video editor specializing in high-impact commercials and cinematic documentaries.",
+    "subHeadline": "Video editor specializing in high-impact commercials and cinematic documentaries.",
     "ctaPrimary": "View Projects",
     "ctaSecondary": "Get in Touch"
   },
@@ -36,8 +36,8 @@ export const siteConfig: SiteConfig = {
   "visionary": {
     "title": "The Visionary Behind The Edit.",
     "bioLong": [
-      "I'm a senior video editor with over 8 years of experience in narrative-driven post-production. My approach focuses on the rhythm of the footage, ensuring every transition serves the story.",
-      "With a deep understanding of color science and sound design, I bridge the gap between creative vision and technical execution. I've worked with global brands and independent filmmakers alike."
+      "I'm a senior video editor with over 3+ years of experience in narrative-driven post-production. My approach focuses on the rhythm of the footage, ensuring every transition serves the story.",
+      "With a deep understanding of color science and sound design, I bridge the gap between creative vision and technical execution. I've worked with Universities, independent filmmakers and have Produced my won shortfilms."
     ]
   },
   "socials": [
@@ -47,18 +47,13 @@ export const siteConfig: SiteConfig = {
       "icon": "fa-brands fa-instagram"
     },
     {
-      "platform": "vimeo",
-      "url": "#",
-      "icon": "fa-brands fa-vimeo"
-    },
-    {
       "platform": "linkedin",
-      "url": "#",
+      "url": "https://www.linkedin.com/in/anurag-chaurasiya-30a27a269?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       "icon": "fa-brands fa-linkedin"
     },
     {
       "platform": "twitter",
-      "url": "#",
+      "url": "https://x.com/anurag__rishu",
       "icon": "fa-brands fa-twitter"
     }
   ],
