@@ -2,13 +2,13 @@ import { Project } from './types';
 
 export const PROJECTS: Project[] = [
   {
-    "id": "1771660597980",
-    "title": "KAFAN Shortfilm",
+    "id": "1771470953648",
+    "title": "New Project Title",
     "client": "Client Name",
     "category": "Cinematic",
-    "thumbnail": "https://img.youtube.com/vi/m_sqDYTRBww/maxresdefault.jpg",
-    "videoUrl": "https://www.youtube.com/embed/m_sqDYTRBww?si=9F_oWOQDlcrPegE3",
-    "description": "KAFAN is a Short film i directed, shot & Edited with my previous team.\n\nThe Story Originally belongs to Late Munshi Premchandra ji",
+    "thumbnail": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "description": "Project description here...",
     "tools": [
       "Premiere Pro",
       "After Effects"
@@ -16,13 +16,13 @@ export const PROJECTS: Project[] = [
     "year": "2026"
   },
   {
-    "id": "1771660595110",
-    "title": "Systematic Failure ",
+    "id": "1771470952034",
+    "title": "New Project Title",
     "client": "Client Name",
-    "category": "Commercial",
-    "thumbnail": "https://img.youtube.com/vi/RrWr1VKK-Ww/maxresdefault.jpg",
-    "videoUrl": "https://www.youtube.com/embed/RrWr1VKK-Ww?si=4QUkImdu76_Ie9I-",
-    "description": "This is a sample Video for Explainer style edits.",
+    "category": "Cinematic",
+    "thumbnail": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "description": "Project description here...",
     "tools": [
       "Premiere Pro",
       "After Effects"
@@ -30,45 +30,17 @@ export const PROJECTS: Project[] = [
     "year": "2026"
   },
   {
-    "id": "1771660592203",
-    "title": "BILAWALI",
-    "client": "Client Name",
+    "id": "2",
+    "title": "Echoes of the Wild",
+    "client": "Nature Now",
     "category": "Documentary",
-    "thumbnail": "https://img.youtube.com/vi/AeN8ZPuSaE0/maxresdefault.jpg",
-    "videoUrl": "https://www.youtube.com/embed/AeN8ZPuSaE0?si=J7vK7NO5wahwuYNP",
-    "description": "Documentary style mini vlog. \nCarrying a calm & relaxing tone.\nMusic makes you feel relaxed.",
+    "thumbnail": "https://images.unsplash.com/photo-1547234935-80c7145ec969?auto=format&fit=crop&q=80&w=800",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "description": "A slow-burn documentary piece focusing on the intimate life of predators in the Savannah.",
     "tools": [
-      "Premiere Pro",
-      "After Effects"
+      "Davinci Resolve",
+      "Avid Media Composer"
     ],
-    "year": "2026"
-  },
-  {
-    "id": "1771660576466",
-    "title": "YOUTH NEEDS ATTENTION.",
-    "client": "Client Name",
-    "category": "Social Media",
-    "thumbnail": "https://img.youtube.com/vi/mQRlObd0VcQ/maxresdefault.jpg",
-    "videoUrl": "https://www.youtube.com/embed/mQRlObd0VcQ?si=-yVFTPt3YhWGGNHg",
-    "description": "Video tries to TALK a serious rather unspoken problem among youth.",
-    "tools": [
-      "Premiere Pro",
-      "After Effects"
-    ],
-    "year": "2026"
-  },
-  {
-    "id": "1771470953648",
-    "title": "FITERAT",
-    "client": "Client Name",
-    "category": "Social Media",
-    "thumbnail": "https://img.youtube.com/vi/iA4DpP6_cU8/maxresdefault.jpg",
-    "videoUrl": "https://www.youtube.com/embed/iA4DpP6_cU8",
-    "description": "The videos shows the mentality of a shoplifter kind of person, pushing people to think about the behavior they carry.",
-    "tools": [
-      "Premiere Pro",
-      "After Effects"
-    ],
-    "year": "2026"
+    "year": "2024"
   }
 ];
